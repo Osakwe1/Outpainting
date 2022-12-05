@@ -4,12 +4,7 @@ import matplotlib.image as img
 from PIL import Image
 
 
-#edit this path once connected to streamlit
-path = '/home/krishinipatel/code/krishinipatel/trial_project/mountain_trial.JPG'
 
-#edit this variable name once connected to streamlit dropdown option
-expand_side = 'left'
-#also need to build in option to have both sides run through the model
 
 def load_image(path):
     image = Image.open(path)
@@ -43,11 +38,11 @@ def convert_to_np(image):
         return 'Error with re-shaping'
     return image_np
 
-def left_right_expand(image):
+def left_right_expand(image,expand_side):
     if expand_side == 'left':
         image_sliced = image[:,:192,:]
     elif expand_side == 'right':
-        width_ = image_np.shape[1] - 192
+        width_ = image.shape[1] - 192
         image_sliced = image[:,width_:,:]
     return image_sliced
 
@@ -56,7 +51,7 @@ def normalize(image):
     return image
 
 
-def masked_image(image):
+def masked_image(image,expand_side):
     mask = np.full((256,64,3),(0))
     if expand_side == 'left':
         image_out = np.concatenate((mask,image),axis=1)
@@ -65,18 +60,15 @@ def masked_image(image):
     return image_out
 
 
-def flip_reshape(image):
-        if expand_side == 'left':
-            image_flipped = np.fliplr(image)
+def flip_reshape(image,expand_side):
+    if expand_side == 'left':
+        image = np.fliplr(image)
 
-        image_to_predict = image_flipped.reshape((-1,256,256,3))
-        return image_to_predict
-
-    image_to_predict = image_flipped.reshape((-1,256,256,3))
+    image_to_predict = image.reshape((-1,256,256,3))
     return image_to_predict
 
-def preprocess(path):
-'''image_jpg needs to be in the form of a jpg path, limited to landscape and square images'''
+def preprocess(path,expand_side):
+    '''image_jpg needs to be in the form of a jpg path, limited to landscape and square images'''
 
     #load image of either landscape or square shape, image is loaded in using Pillow
     image = load_image(path)
@@ -88,17 +80,17 @@ def preprocess(path):
     image_np = convert_to_np(image)
 
     #slicing the image to be the 192 pixel section, if we want a left expand this takes the left side, if we want a right expand this takes the right side
-    image_sliced = left_right_expand(image_np)
+    image_sliced = left_right_expand(image_np,expand_side)
 
     #normalize image to be in range from 0 to 1 instead of 0 to 255
     image_norm = normalize(image_sliced)
 
     #mask image so we create a black mask of 64 pixels wide that our model will predict on
-    masked_image = masked_image(image_norm)
+    image_masked = masked_image(image_norm,expand_side)
 
     #the model we have built is train on right masks, so if the 'left' option has been selected we need to flip this image horizantally
     #we then also need to add a 4th dimension to the image so it runs in the model, will now be shape(1,256,256,3)
-    image_ready = flip_reshape(masked_image)
+    image_ready = flip_reshape(image_masked,expand_side)
 
     #shape of image should now be (1,256,256,3) and ready to predict on
-    return np.save("image_to_predict.npy",image_ready)
+    return image_ready
