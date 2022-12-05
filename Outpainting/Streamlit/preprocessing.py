@@ -17,10 +17,10 @@ def resize(image):
         if width ==256:
             return image
         elif width <256:
-            image = image.resize(256,256)
+            image = image.resize((256,256))
             return image
         elif width >256:
-            image = image.resize(256,256)
+            image = image.resize((256,256))
             return image
     elif width > height:
         rescale_size = height/256
