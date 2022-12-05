@@ -16,3 +16,5 @@ Pillow
 fastapi
 pytz
 uvicorn
+
+mlflow
