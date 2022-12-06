@@ -35,8 +35,13 @@ if option == 'left' or option == 'right':
     #this can be commented out at the end
     #st.image(preprocessed_image)
 
+    st.image(original_image)
 
-    model_path_gen_r = '/home/krishinipatel/code/krishinipatel/trial_project/generator (6).h5'
+    model_path_gen_r = 'generator.h5'
+
+
+
+    
     model_uploaded = load_model(model_path_gen=model_path_gen_r)
 
     prediction = model_uploaded(preprocessed_image, training = True)
@@ -53,8 +58,10 @@ if option == 'left' or option == 'right':
 
 
     output_ready = Image.fromarray(output_full)
-    output_ready.save('/home/krishinipatel/code/krishinipatel/trial_project/mountain_output.png')
-    st.image('/home/krishinipatel/code/krishinipatel/trial_project/mountain_output.png')
+
+    output_ready.save('mountain_output.png')
+    st.image('mountain_output.png')
+
 
     #update these with compute engine paths
     #model_path_dis_r = 'xxx'
@@ -72,7 +79,9 @@ elif option == 'both sides':
     preprocessed_image_right,original_image = preprocess(uploaded_file,expand_side='right')
 
 
-    model_path_gen_r = '/home/krishinipatel/code/krishinipatel/trial_project/generator (6).h5'
+
+    model_path_gen_r = 'generator.h5'
+
     model_uploaded = load_model(model_path_gen=model_path_gen_r)
 
 
@@ -90,5 +99,9 @@ elif option == 'both sides':
     output_full = np.hstack((output_left[:,:64,:],original_image,output_right[:,192:,:]))
 
     output_ready = Image.fromarray(output_full)
-    output_ready.save('/home/krishinipatel/code/krishinipatel/trial_project/mountain_output.png')
-    st.image('/home/krishinipatel/code/krishinipatel/trial_project/mountain_output.png')
+
+    output_ready.save('mountain_output.png')
+    st.image(original_image)
+    st.image('mountain_output.png')
+
+
