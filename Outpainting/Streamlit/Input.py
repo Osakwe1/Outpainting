@@ -10,6 +10,7 @@ import matplotlib.image as img
 
 
 from preprocessing import preprocess
+from load_model import load_model
 
 
 st.title("Outpainting tool")
@@ -28,4 +29,16 @@ option = st.selectbox(
 st.write('You selected:', option)
 if option == 'left' or option == 'right':
     preprocessed_image = preprocess(uploaded_file,expand_side=option)
+    #this can be commented out at the end
     st.image(preprocessed_image)
+
+    #update these with compute engine paths
+    model_path_dis_r = 'xxx'
+    model_path_gen_r = 'yyy'
+    model_uploaded = load_model(model_path_dis=model_path_dis_r, model_path_gen=model_path_gen_r)
+
+    model_generator = model_uploaded[0]
+
+    prediction = model_generator.predict(preprocessed_image)
+
+    #now we need to do post-processing
