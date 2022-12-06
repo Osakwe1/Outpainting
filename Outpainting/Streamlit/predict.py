@@ -6,13 +6,13 @@ from PIL import Image
 import matplotlib.pyplot as plt
 import matplotlib.image as img
 
-
+import tensorflow as tf
 
 from preprocessing import preprocess
 from load_model import load_model
 from postprocessing import postprocess
 
-path = '/home/krishinipatel/code/krishinipatel/trial_project/mountain_trial.JPG'
+path = '/home/krishinipatel/code/krishinipatel/trial_project/trial_2.jpg'
 
 expand_side = 'right'
 
@@ -29,22 +29,25 @@ preprocessed_image = preprocess(path,expand_side)
 #update these with compute engine paths
 
 #model_path_dis_r = 'xxx'
-model_path_gen_r = '/home/krishinipatel/code/krishinipatel/trial_project/generator (3).h5'
+model_path_gen_r = '/home/krishinipatel/code/krishinipatel/trial_project/generator (6).h5'
 model_uploaded = load_model(model_path_gen=model_path_gen_r)
 
 
-prediction = model_uploaded.predict(preprocessed_image)
+prediction = model_uploaded(preprocessed_image, training = True)
 
-#print(prediction.shape)
+#tf.keras.preprocessing.image.save_img( "tensor.png", (prediction[0]))
+# prediction = prediction.numpy()
 
-test = Image.fromarray(((prediction[0,:,:,:])*256).astype(np.uint8))
+# test = (prediction[0,:,:,:]*255).astype(np.uint8())
+# print(test.shape)
+# test = Image.fromarray(test)
 
-test.save('/home/krishinipatel/code/krishinipatel/trial_project/mountain_predict.jpg')
+# test.save('/home/krishinipatel/code/krishinipatel/trial_project/mountain_predict.jpg')
 
 #now we need to do post-processing
-output = postprocess(prediction,80).astype(np.uint8)
+output = postprocess(prediction[0],80).astype(np.uint8)
 #print(output.shape)
 output_ready = Image.fromarray(output)
-output_ready.save('/home/krishinipatel/code/krishinipatel/trial_project/mountain_output.jpg')
+output_ready.save('/home/krishinipatel/code/krishinipatel/trial_project/mountain_output.png')
 
 #print(output_ready)
