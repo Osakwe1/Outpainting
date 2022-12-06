@@ -10,7 +10,7 @@ import tensorflow as tf
 
 from preprocessing import preprocess
 from load_model import load_model
-from postprocessing import postprocess
+from postprocessing import reduce_colors
 
 path = '/home/krishinipatel/code/krishinipatel/trial_project/trial_2.jpg'
 
@@ -45,7 +45,7 @@ prediction = model_uploaded(preprocessed_image, training = True)
 # test.save('/home/krishinipatel/code/krishinipatel/trial_project/mountain_predict.jpg')
 
 #now we need to do post-processing
-output = postprocess(prediction[0],80).astype(np.uint8)
+output = reduce_colors(prediction[0],80).astype(np.uint8)
 #print(output.shape)
 output_ready = Image.fromarray(output)
 output_ready.save('/home/krishinipatel/code/krishinipatel/trial_project/mountain_output.png')
