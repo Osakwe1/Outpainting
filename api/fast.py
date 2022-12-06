@@ -1,9 +1,8 @@
-from fastapi import FastAPI
+#from fastapi import FastAPI
 
-app = FastAPI()
+#app = FastAPI()
 
 # Define a root `/` endpoint
-@app.get('/predict')
-def index():
-    return {'ok': True}
-
+#@app.get('/predict')
+#def index():
+ #   return {'ok': True}
