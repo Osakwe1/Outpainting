@@ -93,4 +93,4 @@ def preprocess(path,expand_side):
     image_ready = flip_reshape(image_masked,expand_side)
 
     #shape of image should now be (1,256,256,3) and ready to predict on
-    return image_ready
+    return image_ready, image
