@@ -2,8 +2,7 @@ import numpy as np
 from PIL import Image
 from sklearn.cluster import KMeans
 
-
-def postprocess(image,n_colors):
+def reduce_colors(image,n_colors):
     if image.ndim == 4:
         image = image[0:,:,:,:]
     image = np.clip(image,0,1)
@@ -12,6 +11,7 @@ def postprocess(image,n_colors):
     kmeans = KMeans(n_clusters=n_colors,random_state=0).fit(image)
     labels = kmeans.predict(image)
     p = lambda x : kmeans.cluster_centers_[x]
+
 
 
     return p(labels).reshape((256,256,3))
