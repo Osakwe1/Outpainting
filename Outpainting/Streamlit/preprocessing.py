@@ -12,6 +12,7 @@ def load_image(path):
 
 
 def resize(image):
+    image = image.convert('RGB')
     width, height = image.size
     if width == height:
         if width ==256:
