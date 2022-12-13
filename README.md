@@ -1,13 +1,14 @@
 # Outpainting
 We designed a Generative Adversial Network for image outpainting as our project for the Le Wagon Data Science #1050. 
 
-# Model Training
+## Model Training
+
 
 ![Screenshot 2022-12-13 at 21 02 26](https://user-images.githubusercontent.com/42135459/207443050-785caf12-4b7a-4a7c-873c-5e67dc67712a.png)
 
 
 
-# Gallery
+## Gallery
 Here are some of our results, taken directly from our model!
 
 (L-R: Original image, Outpainted image)
