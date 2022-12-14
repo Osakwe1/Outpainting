@@ -1,9 +1,15 @@
 # Outpainting
 We designed a Generative Adversial Network for image outpainting as our project for the Le Wagon Data Science #1050. 
 
+## Model Architecture
+In designing this, we used a GAN comprising a Generator and Discriminator. 
+
+The Discriminator identifies real images from the images created by the Generator and classifies them accordingly. Using backpropagation, the model weights are adjusted by calculating the weight's impact on the output.
+
+![Flowchart1 (1)](https://user-images.githubusercontent.com/42135459/207732495-41ca9d25-ef10-4b2a-a1d0-504cf0807b46.png)
+
 ## Model Training
-
-
+Using the 
 ![Screenshot 2022-12-13 at 21 02 26](https://user-images.githubusercontent.com/42135459/207443050-785caf12-4b7a-4a7c-873c-5e67dc67712a.png)
 
 
