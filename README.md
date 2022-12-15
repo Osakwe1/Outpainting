@@ -27,5 +27,5 @@ Here are some of our results, taken directly from our model!
 
 ## FrontEnd
 
-This site was built & hosted using [Streamlit](https://streamlit.io/).
+<!-- This site was built & hosted using [Streamlit](https://streamlit.io/). -->
 
