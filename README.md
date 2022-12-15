@@ -1,12 +1,15 @@
 # Outpainting
 We designed a Generative Adversial Network for image outpainting as our project for the Le Wagon Data Science #1050. 
 
+## Setup
+Our code is written in Python 3.10, and we used the Google Console a Vertex AI VM (TensorFlow Enterprise 2.10) with an NVIDIA T4 GPU, 4 vCPUs, and 15 GB of RAM.
+
 ## Model Architecture
 In designing this, we used a GAN comprising a Generator and Discriminator. 
 
 The Discriminator identifies real images from the images created by the Generator and classifies them accordingly. Using backpropagation, the model weights are adjusted by calculating the weight's impact on the output.
 
-![Flowchart1 (1)](https://user-images.githubusercontent.com/42135459/207732495-41ca9d25-ef10-4b2a-a1d0-504cf0807b46.png)
+![Flowchart1 (2)](https://user-images.githubusercontent.com/42135459/207884696-c264280b-83bb-4954-87ca-5bbe242203f3.png)
 
 ## Model Training
 Using the 
