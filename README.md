@@ -1,18 +1,16 @@
 # Outpainting
-We designed a Generative Adversial Network for *image outpainting* as our project for the Le Wagon Data Science #1050. 
+We designed a Generative Adversial Network for **image outpainting** as our project for the Le Wagon Data Science #1050.
 
-## Setup
-Our code is written in Python 3.10, and we used the Google Console a Vertex AI VM (TensorFlow Enterprise 2.10) with an NVIDIA T4 GPU, 4 vCPUs, and 15 GB of RAM.
+## Introduction
+Our code is written in Python 3.10, and we used the Google Console a Vertex AI VM (TensorFlow Enterprise 2.10) with an NVIDIA T4 GPU, 4 vCPUs, and 15 GB of RAM. The training and test set for this project were the Places365 Dataset provided by 
 
-## Model Architecture
-In designing this, we used a GAN comprising a Generator and Discriminator. 
-
-The Discriminator identifies real images from the images created by the Generator and classifies them accordingly. Using backpropagation, the model weights are adjusted by calculating the weight's impact on the output.
+## Model Architecture & Training
+In designing this, we used a Conditional GAN comprising a Generator and Discriminator. The Generator produces outpaintings of masked images it deems to be 'realistic' based off the training set of images it has seen. The Discriminator identifies real images from the images created by the Generator and classifies them accordingly. The Discriminator returns feedback on the images it views as '1's and '0's and this is used to calculate the loss function. 
+Using backpropagation, the model weights are then adjusted by calculating the weight's impact on the output. The training process is shown in detail below:
 
 ![Flowchart1 (2)](https://user-images.githubusercontent.com/42135459/207884696-c264280b-83bb-4954-87ca-5bbe242203f3.png)
 
-## Model Training
-Using the model architecture designed, 
+Using the model architecture designed, and sufficient training
 ![Screenshot 2022-12-13 at 21 02 26](https://user-images.githubusercontent.com/42135459/207443050-785caf12-4b7a-4a7c-873c-5e67dc67712a.png)
 
 
