@@ -2,7 +2,7 @@
 We designed a Generative Adversial Network for **image outpainting** as our project for the Le Wagon Data Science #1050.
 
 ## Introduction
-Our code is written in Python 3.10, and we used the Google Console a Vertex AI VM (TensorFlow Enterprise 2.10) with an NVIDIA T4 GPU, 4 vCPUs, and 15 GB of RAM. The training and test set for this project were the Places365 Dataset provided by 
+Our code is written in Python 3.10, and we used the Google Console a Vertex AI VM (TensorFlow Enterprise 2.10) with an NVIDIA T4 GPU, 4 vCPUs, and 15 GB of RAM. The training and test set for this project were the [Places365 Dataset](http://places2.csail.mit.edu/) provided by Bolei Zhou
 
 ## Model Architecture & Training
 In designing this, we used a Conditional GAN comprising a Generator and Discriminator. The Generator produces outpaintings of masked images it deems to be 'realistic' based off the training set of images it has seen. The Discriminator identifies real images from the images created by the Generator and classifies them accordingly. The Discriminator returns feedback on the images it views as '1's and '0's and this is used to calculate the loss function. 
@@ -25,4 +25,7 @@ Here are some of our results, taken directly from our model!
 ![combine_images](https://user-images.githubusercontent.com/42135459/207447971-4a186d78-e7ae-47fd-b128-aee0b4762b1c.png)
 
 
+## FrontEnd
+
+This site was built & hosted using [Streamlit](https://streamlit.io/)
 
