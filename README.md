@@ -28,6 +28,10 @@ Here are some of our results, taken directly from our model!
 ![combine_images (1)](https://user-images.githubusercontent.com/42135459/207445594-9664b888-baff-46aa-80b2-817d144b970c.jpg)
 ![combine_images](https://user-images.githubusercontent.com/42135459/207447971-4a186d78-e7ae-47fd-b128-aee0b4762b1c.png)
 
+
+<!-- #### Special Thanks 
+Special thanks are in order for Mark Botterill & Andrei Danila for their guidance and assistance throughout the project. I would also love to extend my gratitude to Catriona Beamish & Oliver Giles for their inspiration and encouragement throughout the pitch and feasibility process. -->
+
 <!-- ## FrontEnd -->
 
 <!-- This site was built & hosted using [Streamlit](https://streamlit.io/). -->
