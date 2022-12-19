@@ -14,7 +14,9 @@ Using the model architecture designed, and sufficient training, the model was ca
 
 ***(L-R: After 1K steps, After 25K steps, After 50K steps, After 1M steps, After 2M Steps, Original Image)***
 
-![Screenshot 2022-12-13 at 21 02 26](https://user-images.githubusercontent.com/42135459/207443050-785caf12-4b7a-4a7c-873c-5e67dc67712a.png)
+![image (1)](https://user-images.githubusercontent.com/42135459/208507107-d98454a4-c325-4920-8b8a-82e6d9069d96.png)
+
+<!-- ![Screenshot 2022-12-13 at 21 02 26](https://user-images.githubusercontent.com/42135459/207443050-785caf12-4b7a-4a7c-873c-5e67dc67712a.png) -->
 
 
 ## Gallery
